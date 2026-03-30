@@ -1,12 +1,13 @@
 import axios from "axios";
 import { getAuthToken } from "./auth";
+import { API_BASE_URL } from "./api";
 
 /**
  * @author Ankur Mundra on June, 2023
  */
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:3002",
+  baseURL: API_BASE_URL,
   timeout: 10000, // Increased from 1000ms to 10 seconds
   headers: {
     "Content-Type": "application/json",

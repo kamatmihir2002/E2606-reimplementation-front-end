@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { authenticationActions } from "../../store/slices/authenticationSlice";
 import { alertActions } from "../../store/slices/alertSlice";
 import { setAuthToken } from "../../utils/auth";
+import { API_BASE_URL } from "../../utils/api";
 import * as Yup from "yup";
 import axios from "axios";
 
@@ -30,7 +31,7 @@ const Login: React.FC = () => {
 
   const onSubmit = (values: ILoginFormValues, submitProps: FormikHelpers<ILoginFormValues>) => {
     axios
-      .post("http://localhost:3002/login", values)
+      .post(`${API_BASE_URL}/login`, values)
       .then((response) => {
         const payload = setAuthToken(response.data.token);
 
